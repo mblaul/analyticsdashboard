@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 
 var app = express();
 
-const sequelize = new Sequelize('worldhapiness', 'root', 'root', {
+const sequelize = new Sequelize('worldhappiness', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql',
 
@@ -23,12 +23,12 @@ sequelize.query('SELECT * FROM `2017`').then(rows => {
   console.log(rows)
 });
 
-
-
 app.use('/static', express.static(__dirname + '/public'));
+
 
 app.set('view engine', 'pug');
 
+app.use(require('./routes'));
 
 
 app.use((req, res, next) => {
