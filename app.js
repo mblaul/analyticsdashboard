@@ -19,9 +19,13 @@ const sequelize = new Sequelize('worldhappiness', 'root', 'root', {
   operatorAliases: false
 });
 
-sequelize.query('SELECT * FROM `2017`').then(rows => {
-  console.log(rows)
-});
+// sequelize.query('SELECT * FROM `2017`').then(rows => {
+//   console.log(rows)
+// });
+
+const twenty17 = sequelize.import(__dirname + "/models/2017");
+
+twenty17.getFreedom();
 
 //Set static directory to /public
 app.use('/static', express.static(__dirname + '/public'));

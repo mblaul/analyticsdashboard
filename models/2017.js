@@ -1,28 +1,28 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('2017', {
+  var twenty17 = sequelize.define('2017', {
     Country: {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    Happiness.Rank: {
+    HappinessRank: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    Happiness.Score: {
+    HappinessScore: {
       type: "DOUBLE",
       allowNull: true
     },
-    Whisker.high: {
+    WhiskerHigh: {
       type: "DOUBLE",
       allowNull: true
     },
-    Whisker.low: {
+    WhiskerLow: {
       type: "DOUBLE",
       allowNull: true
     },
-    Economy..GDP.per.Capita.: {
+    GDP: {
       type: "DOUBLE",
       allowNull: true
     },
@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       type: "DOUBLE",
       allowNull: true
     },
-    Health..Life.Expectancy.: {
+    LifeExpectancy: {
       type: "DOUBLE",
       allowNull: true
     },
@@ -42,14 +42,20 @@ module.exports = function(sequelize, DataTypes) {
       type: "DOUBLE",
       allowNull: true
     },
-    Trust..Government.Corruption.: {
+    TrustGovernmentCorruption: {
       type: "DOUBLE",
       allowNull: true
     },
-    Dystopia.Residual: {
+    DystopiaResidual: {
       type: "DOUBLE",
       allowNull: true
     }
+  }, {
+      classMethods: {
+        getFreedom: function() {
+          console.log('poo')
+        }
+      }
   }, {
     tableName: '2017'
   });
