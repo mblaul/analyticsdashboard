@@ -50,13 +50,10 @@ module.exports = function(sequelize, DataTypes) {
       type: "DOUBLE",
       allowNull: true
     }
-  }, {
-      classMethods: {
-        getFreedom: function() {
-          console.log('poo')
-        }
-      }
-  }, {
-    tableName: '2017'
   });
+
+  twenty17.prototype.getFreedom = function(){
+    console.log("Hello world from 2017 model!")
+  };
+  return twenty17;
 };

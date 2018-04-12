@@ -25,7 +25,7 @@ const sequelize = new Sequelize('worldhappiness', 'root', 'root', {
 
 const twenty17 = sequelize.import(__dirname + "/models/2017");
 
-twenty17.getFreedom();
+twenty17.prototype.getFreedom();
 
 //Set static directory to /public
 app.use('/static', express.static(__dirname + '/public'));
