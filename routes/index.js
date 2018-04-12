@@ -4,4 +4,4 @@ const router = express.Router();
 //Entry point for all requests
 router.use('/', require('./home'));
 
-modules.exports = router;
+module.exports = router;

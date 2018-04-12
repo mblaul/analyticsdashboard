@@ -23,14 +23,16 @@ sequelize.query('SELECT * FROM `2017`').then(rows => {
   console.log(rows)
 });
 
+//Set static directory to /public
 app.use('/static', express.static(__dirname + '/public'));
 
-
+//Use pug files for templates/views
 app.set('view engine', 'pug');
+
 
 app.use(require('./routes'));
 
-
+//Error handling
 app.use((req, res, next) => {
   var err = new Error('File not found');
   err.status = 404;
