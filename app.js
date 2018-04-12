@@ -1,8 +1,27 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var session = require('express-session');
+const Sequelize = require('sequelize');
 
 var app = express();
+
+const sequelize = new Sequelize('worldhapiness', 'root', 'root', {
+  host: 'localhost',
+  dialect: 'mysql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
+
+  operatorAliases: false
+});
+
+sequelize.query('SELECT * FROM `2017`').then(rows => {
+  console.log(rows)
+});
 
 
 
