@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  var twenty17 = sequelize.define('2017', {
+  const report_ty = sequelize.define('report_ty', {
     Country: {
       primaryKey:true,
       type: DataTypes.TEXT,
@@ -54,18 +54,13 @@ module.exports = function(sequelize, DataTypes) {
   }, {
       freezetablenames: true,
       timestamps: false,
-      tableName: '2017'
+      tableName: 'report_ty'
   });
 
-  twenty17.prototype.getFreedom = function (country) {
-      twenty17.findAll({
-        where: {Country: country},
+  report_ty.prototype.getFreedom = function () {
+      report_ty.findAll({
         raw: true
-      }).then(twenty172 =>{
-        twenty172.forEach(function(element){
-          console.log(element.Freedom);
-        })
       })
     };
-  return twenty17;
+  return report_ty;
 };

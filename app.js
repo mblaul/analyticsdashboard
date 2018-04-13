@@ -1,30 +1,11 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var session = require('express-session');
-const Sequelize = require('sequelize');
-
 var app = express();
-
-const sequelize = new Sequelize('worldhappiness', 'root', 'root', {
-  host: 'localhost',
-  dialect: 'mysql',
-
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  },
-
-  operatorAliases: false
-});
-
-var twenty17 = sequelize.import(__dirname + "/models/2017");
-
-twenty17.prototype.getFreedom('Germany');
 
 //Set static directory to /public
 app.use('/static', express.static(__dirname + '/public'));
+
 
 //Use pug files for templates/views
 app.set('view engine', 'pug');
