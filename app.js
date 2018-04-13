@@ -19,10 +19,6 @@ const sequelize = new Sequelize('worldhappiness', 'root', 'root', {
   operatorAliases: false
 });
 
-// sequelize.query('SELECT * FROM `2017`').then(rows => {
-//   console.log(rows)
-// });
-
 var twenty17 = sequelize.import(__dirname + "/models/2017");
 
 twenty17.prototype.getFreedom('Germany');

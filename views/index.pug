@@ -1,0 +1,56 @@
+doctype html
+// saved from url=(0059)http://getbootstrap.com/docs/4.0/examples/starter-template/
+html(lang='en')
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='amazon_favicon.png')
+    title Starter Dashboard
+    // Bootstrap core CSS
+    link(href='static/bootstrap_files/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='static/bootstrap_files/starter-template.css', rel='stylesheet')
+    style.
+  body
+    nav.navbar.navbar-expand-md.fixed-top(style='background-color: #F18903;')
+      //
+        <a class="navbar-brand" href="http://getbootstrap.com/docs/4.0/examples/starter-template/#">Navigation</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>!
+      #navbarsExampleDefault.navbar-collapse
+        ul.nav.nav-pills.justify-content-between
+          li.nav-item
+            a.nav-link.active(href='home.html')
+              | Home
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='dashboard.html') Dashboard
+          li.nav-item
+            a.nav-link(href='#') Reporting
+          li.nav-item
+            a.nav-link(href='support.html') Support
+        //
+          <form class="form-inline my-2 my-lg-0">
+          &nbsp;&nbsp;&nbsp;
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>!
+    main.container(role='main')
+      .starter-template
+      .text-center
+        a(href='support.html')
+          img(align='middle', src='/images/glyphicons/glyphicons-11-envelope.png', alt='Support')
+        footer
+    // /.container
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='/bootstrap_files/jquery-3.2.1.slim.min.js.download', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\\/script>')
+    script(src='/bootstrap_files/popper.min.js.download')
+    script(src='/bootstrap_files/bootstrap.min.js.download')
