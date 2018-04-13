@@ -3,6 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
   var twenty17 = sequelize.define('2017', {
     Country: {
+      primaryKey:true,
       type: DataTypes.TEXT,
       allowNull: true
     },
@@ -50,10 +51,21 @@ module.exports = function(sequelize, DataTypes) {
       type: "DOUBLE",
       allowNull: true
     }
+  }, {
+      freezetablenames: true,
+      timestamps: false,
+      tableName: '2017'
   });
 
-  twenty17.prototype.getFreedom = function(){
-    console.log("Hello world from 2017 model!")
-  };
+  twenty17.prototype.getFreedom = function (country) {
+      twenty17.findAll({
+        where: {Country: country},
+        raw: true
+      }).then(twenty172 =>{
+        twenty172.forEach(function(element){
+          console.log(element.Freedom);
+        })
+      })
+    };
   return twenty17;
 };
