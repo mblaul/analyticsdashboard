@@ -42,8 +42,11 @@ html(lang='en')
       .starter-template
       .text-center
         each fi, i in freedomlist
-          =fi.Country
-          =fi.Freedom
+          ul
+            li
+              =fi.Country
+            li
+              =fi.Freedom
         a(href='support.html')
           img(align='middle', src='/images/glyphicons/glyphicons-11-envelope.png', alt='Support')
         footer

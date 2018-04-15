@@ -55,12 +55,7 @@ module.exports = function(sequelize, DataTypes) {
       freezetablenames: true,
       timestamps: false,
       tableName: 'report_ty'
-  });
-
-  report_ty.prototype.getFreedom = function () {
-      report_ty.findAll({
-        raw: true
-      })
-    };
+    });
+  };
   return report_ty;
 };

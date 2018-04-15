@@ -1,9 +1,12 @@
-var request = require('request');
 var db = require('../models/index.js');
+var report_ty = require('../models/report_ty.js');
 
 module.exports.index_get = (req, res, next) => {
 
-  var freedomlist = db.report_ty.prototype.getFreedom();
-  console.log(freedomlist);
-  res.render('index', {freedomlist : freedomlist});
+  db.report_ty.findAll({
+    raw: true
+  }).then(freedomlist =>{
+    return res.render('index', {freedomlist:freedomlist});
+  })
+
 }

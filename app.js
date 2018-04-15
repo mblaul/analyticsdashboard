@@ -1,15 +1,14 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var session = require('express-session');
+
 var app = express();
 
 //Set static directory to /public
 app.use('/static', express.static(__dirname + '/public'));
 
-
 //Use pug files for templates/views
 app.set('view engine', 'pug');
-
 
 app.use(require('./routes'));
 
@@ -25,8 +24,6 @@ app.use((err, req, res, next) => {
   res.send(`there was an error: ${err.message}\n code: ${err.status}`)
 });
 
-
-
-app.listen(3000, () =>{
+app.listen(3000, () => {
   console.log('Express app listening on port 3000')
 })
