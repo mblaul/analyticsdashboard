@@ -56,6 +56,5 @@ module.exports = function(sequelize, DataTypes) {
       timestamps: false,
       tableName: 'report_ty'
     });
-  };
   return report_ty;
 };
