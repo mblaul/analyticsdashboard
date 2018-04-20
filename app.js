@@ -5,6 +5,8 @@ var session = require('express-session');
 var app = express();
 
 //Set static directory to /public
+app.use(express.static(__dirname + '/public'));
+
 app.use('/static', express.static(__dirname + '/public'));
 
 //Use pug files for templates/views

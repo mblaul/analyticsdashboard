@@ -7,6 +7,9 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='author', content='')
     link(rel='icon', href='amazon_favicon.png')
+    script.
+      var freedomlist = !{JSON.stringify(freedomlist)}
+      console.log(freedomlist);
     title Starter Dashboard
     // Bootstrap core CSS
     link(href='static/bootstrap_files/bootstrap.min.css', rel='stylesheet')
@@ -39,24 +42,18 @@ html(lang='en')
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>!
     main.container(role='main')
-      .starter-template
-      .text-center
-        each fi, i in freedomlist
-          ul
-            li
-              =fi.Country
-            li
-              =fi.Freedom
-        a(href='support.html')
-          img(align='middle', src='/images/glyphicons/glyphicons-11-envelope.png', alt='Support')
-        footer
+      
     // /.container
     //
       Bootstrap core JavaScript
       ==================================================
     // Placed at the end of the document so the pages load faster
-    script(src='public/bootstrap_files/jquery-3.2.1.slim.min.js.download', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='static/bootstrap_files/jquery-3.2.1.slim.min.js.download', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
     script.
       window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\\/script>')
-    script(src='public/bootstrap_files/popper.min.js.download')
-    script(src='public/bootstrap_files/bootstrap.min.js.download')
+    script(src='static/bootstrap_files/popper.min.js.download')
+    script(src='static/bootstrap_files/bootstrap.min.js.download')
+    script(src='static/js/d3/d3.min.js')
+    script(src='static/js/chart.js')
+    
+    
