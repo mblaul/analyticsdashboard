@@ -1,11 +1,12 @@
 var width = 1500;
 var height = 1500;
+
 var heightScale = d3.scaleLinear()
   .domain([0, 1])
   .range([0, height]);
 
 var color = d3.scaleLinear()
-  .domain([0,1])
+  .domain([0, 1])
   .range(["orange","blue"]);
 
 var canvas =  d3.select("main")

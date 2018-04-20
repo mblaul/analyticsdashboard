@@ -4,9 +4,9 @@ var d3 = require('d3');
 module.exports.index_get = (req, res, next) => {
 
   db.report_ty.findAll({
-    raw: true
+    raw: true,
+    attributes: ['Country','Freedom']
   }).then(freedomlist =>{
-    console.log(typeof freedomlist)
     return res.render('index', {freedomlist:freedomlist});
   })
 
