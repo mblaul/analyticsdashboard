@@ -1,24 +1,60 @@
-var width = 1500;
-var height = 1500;
+var countries =  freedomlist.map(function(f){
+  return f.Country;
+});
 
-var heightScale = d3.scaleLinear()
-  .domain([0, 1])
-  .range([0, height]);
+var margin = {top: 5, right: 5, bottom: 50, left: 50};
+var fullWidth = 700;
+var fullHeight = 200;
+// the width and height values will be used in the ranges of our scales
 
-var color = d3.scaleLinear()
-  .domain([0, 1])
-  .range(["orange","blue"]);
+var width = fullWidth - margin.right - margin.left;
+var height = fullHeight - margin.top - margin.bottom;
 
-var canvas =  d3.select("main")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", height);
+var svg = d3.select('#holder').append('svg')
+  .attr('width', fullWidth)
+  .attr('height', fullHeight)
+  .append('g')
+  .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-var bars = canvas.selectAll("rect")
-  .data(freedomlist)
-  .enter()
-    .append("rect")
-    .attr("width", 10)
-    .attr("height", function(d) { return d.Freedom * 1000; })
-    .attr("fill", function(d){ return color(d.Freedom); })
-    .attr("x", function(d, i){ return i * 5; });
+var freedomScale = d3.scaleLinear()
+  .domain([0, d3.max(freedomlist, function (d) { return d.Freedom; })])
+  .range([height, 0])
+  .nice();
+
+var countryScale = d3.scaleBand()
+  .domain(countries)
+  .range([0, width])
+  .paddingInner(0.1);
+
+var bandwidth = countryScale.bandwidth();
+
+var barHolder = svg.append('g')
+  .classed('bar-holder', true);
+
+  barHolder.selectAll('rect.bar')
+      .data(freedomlist)
+    .enter().append('rect')
+      .classed('bar', true)
+      .attr('x', function(d, i) {
+        return countryScale(d.Country);
+      })
+      .attr('width', bandwidth)
+      .attr('y', function(d) {
+        return freedomScale(d.Freedom);
+      })
+      .attr('height', function(d) {
+        return height - freedomScale(d.Freedom);
+      });
+
+var xaxis = d3.axisBottom(countryScale)
+  .tickSizeOuter(0);
+var yaxis = d3.axisLeft(freedomScale);
+
+svg.append('g')
+  .classed('x axis', true)
+  .attr('transform', 'translate(0,' + height + ')')
+  .call(xaxis);
+
+svg.append('g')
+  .classed('y axis', true)
+  .call(yaxis);
