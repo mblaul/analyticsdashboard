@@ -57,7 +57,7 @@ module.exports = function(sequelize, DataTypes) {
       tableName: 'report_ty'
     });
 
-report_ty.prototype.getTopFreedomIndex = function(){
+report_ty.getTopFreedomIndex = () => {
   report_ty.findAll({
       raw: true,
       limit: 10,
