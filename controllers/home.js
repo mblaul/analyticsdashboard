@@ -2,23 +2,26 @@ var db = require('../models/index.js');
 
 module.exports.index_get = (req, res, next) => {
 
-  db.report_ty.findAll({
-      raw: true,
-      limit: 10,
-      attributes: ['Country','Freedom'],
-      order: [['Freedom', 'DESC']]
-    }).then(topfreedomindex =>{
-      return topfreedomindex;
-    });
+  var topFreedomIndexPromise = db.report_ty.prototype.getTopFreedomIndex();
 
-  db.report_ty.findAll({
-      raw: true,
-      limit: 10,
-      attributes: ['Country','Freedom'],
-      order: [['Freedom', 'ASC']]
-    }).then(btmfreedomindex =>{
-      return btmfreedomindex;
-    });
+  console.log(typeof topFreedomIndexPromise);
+// db.report_ty.prototype.getTopFreedomIndex();
 
-  return res.render('index',  {btmfreedomindex:btmfreedomindex, topfreedomindex:topfreedomindex});
+  Promise.all([topFreedomIndexPromise]).then((results)=>{
+    return res.render('index', {topfreedomindex:topfreedomindex});
+  }).catch((err) => {
+    return next(err);
+  })
+
+
+  // db.report_ty.findAll({
+  //     raw: true,
+  //     limit: 10,
+  //     attributes: ['Country','Freedom'],
+  //     order: [['Freedom', 'ASC']]
+  //   }).then(btmfreedomindex => {
+  //     return btmfreedomindex;
+  //   });
+
+  // return res.render('index');
 }
