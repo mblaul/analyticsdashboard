@@ -57,16 +57,22 @@ module.exports = function(sequelize, DataTypes) {
       tableName: 'report_ty'
     });
 
-report_ty.getTopFreedomIndex = () => {
-  report_ty.findAll({
+report_ty.getTopFreedomIndex = function(){
+  return report_ty.findAll({
       raw: true,
       limit: 10,
       attributes: ['Country','Freedom'],
       order: [['Freedom', 'DESC']]
-    }).then(topfreedomindex => {
-      console.log(topfreedomindex);
-      return topfreedomindex;
     })
   };
+
+  report_ty.getBtmFreedomIndex = function(){
+    return report_ty.findAll({
+        raw: true,
+        limit: 10,
+        attributes: ['Country','Freedom'],
+        order: [['Freedom', 'ASC']]
+      })
+    };
   return report_ty;
 };
