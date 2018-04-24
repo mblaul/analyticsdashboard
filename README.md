@@ -1,20 +1,19 @@
 # analyticsdashboard
 
-This is a pet project to connect to databases and display various KPIs. The goal is to eventually have a platform that can connect to any SQL database and display information with relatively little configuration.
+This is a pet project to display various KPIs. The goal is to eventually have a platform that can connect to any SQL database and display information with relatively little configuration.
 
 ## Getting Started
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-This is a nodejs/express application so you will need to install those in order to run this.
+This is a nodejs application so you will need to install that in order to run this.
+You can install NodeJS/npm [here](https://nodejs.org/en/download/).
 
 A SQL database is required in order to send data to the application. MySQL is recommended.
 You can install MySQL [here](https://www.mysql.com/downloads/).
 
 This project also utilizes sequelize to interact with the SQL database.
-To install those run the following commands:
+To install that run the following commands:
 ```
 $ npm install --save sequelize
 
@@ -36,6 +35,10 @@ Run the following command to set up the environment:
 $ npm install
 ```
 
+You will need to configure you SQL connection string.
+Do so by editing the values in ./models/config.json
+
+
 To test and make sure the app is working run:
 
 ```
@@ -45,8 +48,8 @@ $ node app
 You should see:
 ```
 Express app listening on port 3000
-Executing (default): SELECT 1+1 AS result
-Connection has been established successfully.
+Executing (default): SELECT 1+1 AS result //test query
+Connection has been established successfully. //successful connection to your database
 ```
 
 And voila! You are now running the analyticsdashboard.
