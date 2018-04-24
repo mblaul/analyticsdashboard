@@ -8,7 +8,7 @@ html(lang='en')
     meta(name='author', content='')
     link(rel='icon', href='amazon_favicon.png')
     script.
-      var topfreedomindex = !{JSON.stringify(topfreedomindex)}
+      var topfreedomindex = !{JSON.stringify(topfreedomindex.reverse())}
       var btmfreedomindex = !{JSON.stringify(btmfreedomindex)}
       var barchartdata = [topfreedomindex, btmfreedomindex]
       console.log(barchartdata)
